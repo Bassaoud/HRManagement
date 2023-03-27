@@ -17,30 +17,26 @@
     <img src="https://freesvg.org/img/logo_star_03.png" width="50px">
   </ion-col>
   <ion-col size="8" class="ion-text-left">
-    <ion-button fill="clear" color="dark" routerLink="/" routerDirection="root" routerLinkActive="active-item"
+    <ion-button fill="clear" color="light" routerLink="/" routerDirection="root" routerLinkActive="active-item"
       [routerLinkActiveOptions]="{exact: true}">
-      Home
+      Accueil
     </ion-button>
     <!-- Button with dropdown -->
-    <ion-button #productbtn fill="clear" color="dark"
+    <ion-button #productbtn fill="clear" color="light"
       routerLink="/employees" routerDirection="root" routerLinkActive="active-item" [routerLinkActiveOptions]="{exact: true}">
-      Employees
+      Employes
     </ion-button>
-    <ion-button fill="clear" color="dark" routerLink="/about" routerDirection="root" routerLinkActive="active-item">
-      About
+    <ion-button fill="clear" color="light" routerLink="/about" routerDirection="root" routerLinkActive="active-item">
+      A propos
     </ion-button>
   </ion-col>
   <ion-col size="2" class="ion-text-right">
-    <ng-container *ngIf="!isLoggedIn">
-      <ion-button fill="clear" color="dark" routerLink="/login" routerDirection="root">
-        Connexion <ion-icon slot="end" name="log-in"></ion-icon> 
+      <ion-button fill="clear" color="light" routerLink="/login" routerDirection="root" *ngIf="!isLoggedIn">
+        Connexion <ion-icon slot="end" name="log-in" color="light"></ion-icon> 
       </ion-button>
-    </ng-container>
-    <ng-container *ngIf="isLoggedIn">
-      <ion-button fill="clear" color="dark" routerDirection="root">
-        Déconnexion <ion-icon slot="end" name="log-in"></ion-icon> 
+      <ion-button fill="clear" color="light" routerDirection="root" *ngIf="isLoggedIn" (click)="logout()">
+        Déconnexion <ion-icon slot="end" name="log-in" color="light"></ion-icon> 
       </ion-button>
-    </ng-container>
     
   </ion-col>
 

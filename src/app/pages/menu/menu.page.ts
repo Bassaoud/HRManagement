@@ -10,17 +10,17 @@ export class MenuPage implements OnInit {
 
   menuItems = [
     {
-      title: 'Home',
+      title: 'Accueil',
       icon: 'home',
       path: '/'
     },
     {
-      title: 'Employees',
-      icon: 'list',
+      title: 'Employés',
+      icon: 'people',
       path: '/employees'
     },
     {
-      title: 'About',
+      title: 'A propos',
       icon: 'information',
       path: '/about'
     }

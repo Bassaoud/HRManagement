@@ -1,11 +1,111 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Home
+      Accueil
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
+  <!-- Section 1 : Slogan et image -->
+  <ion-row class="home__SectionPresentation ion-align-items-center">
+    <ion-col size="6">
+      <h1>Le meilleur service pour votre entreprise</h1>
+      <p>Nous offrons une solution complète pour la gestion de vos employés. Gagnez du temps et de l'efficacité en utilisant notre plateforme.</p>
+      <ion-button routerLink="/login" color="$primary-color" size="default">Essayer</ion-button>
+    </ion-col>
+    <ion-col size="6" class="ion-text-center">
+      <img src="https://www.hapo.org/images/default-source/new-site/icons/crms.svg?sfvrsn=d2582320_0" alt="Illustration">
+    </ion-col>
+  </ion-row>
+
+  <!-- Section 2 : Fonctionnalités -->
+  <ion-row class="home__SectionFonctionnalites ion-align-items-center">
+    <ion-col size="12">
+      <h1 class="ion-text-center">Nos fonctionnalités</h1>
+    </ion-col>
+    <ion-col size="12" size-md="4">
+      <ion-card>
+        <ion-card-header class="ion-text-center">
+          <ion-icon name="people" class="ion-justify-content-center"></ion-icon>
+          <ion-card-title>Gestion des employés</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Suivez facilement la présence et les absences de vos employés grâce à notre plateforme.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="12" size-md="4">
+      <ion-card>
+        <ion-card-header class="ion-text-center">
+          <ion-icon name="document-text" class="ion-justify-content-center"></ion-icon>
+          <ion-card-title>Gestion des horaires</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Créez et gérez les horaires de vos employés en quelques clics. Optimisez le temps et les ressources de votre entreprise.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="12" size-md="4">
+      <ion-card>
+        <ion-card-header class="ion-text-center">
+          <ion-icon name="calendar" class="ion-justify-content-center"></ion-icon>
+          <ion-card-title>Gestion des congés</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Permettez à vos employés de demander des congés en ligne et validez-les facilement depuis notre plateforme.
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- Section 3 : Témoignages -->
+  <ion-row class="home__SectionTemoignages ion-align-items-center ion-justify-content-center">
+    <ion-col size="12">
+      <h1 class=" ion-text-center">Témoignages</h1>
+    </ion-col>
+    <ion-col size="12" size-md="3" *ngFor="let testimonial of testimonials">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ testimonial.name }}</ion-card-title>
+          <ng-container *ngFor="let star of getStars(testimonial.stars)">
+            ⭐
+          </ng-container>        
+        </ion-card-header>
+        <ion-card-content>
+          {{ testimonial.comment }}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+    <!-- Section 4 : Marques -->
+  <section class="home__SectionPartenaires">
+    <div class="container">
+      <h2 class="ion-text-center">Nos partenaires</h2>
+      <div class="brands-grid">
+        <div class="brand-item">
+          <img src="https://seeklogo.com/images/S/samsung-logo-8A87EDFB33-seeklogo.com.png" alt="Brand 1">
+        </div>
+        <div class="brand-item">
+          <img src="https://seeklogo.com/images/L/linkedin-logo-F84AF05CFC-seeklogo.com.png" alt="Brand 2">
+        </div>
+        <div class="brand-item">
+          <img src="https://seeklogo.com/images/N/NASA-logo-9411797223-seeklogo.com.png" alt="Brand 3">
+        </div>
+        <div class="brand-item">
+          <img src="https://seeklogo.com/images/G/google-2015-new-logo-FFFC46553B-seeklogo.com.png" alt="Brand 4">
+        </div>
+        <div class="brand-item">
+          <img src="https://seeklogo.com/images/H/H_and_R-logo-65516C39AD-seeklogo.com.png" alt="Brand 5">
+        </div>
+        <div class="brand-item">
+          <img src="https://seeklogo.com/images/R/royal-canin-logo-182975B43B-seeklogo.com.png" alt="Brand 6">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <app-footer></app-footer>
 </ion-content>

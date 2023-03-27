@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,13 +15,32 @@ export class HeaderComponent  implements OnInit {
 
   @ViewChild('productbtn', { read: ElementRef })
   productbtn!: ElementRef;
-  isLoggedIn = false;
+  isLoggedIn: boolean = false;
+  
+  menuItems = [
+    {
+      title: 'Accueil',
+      icon: 'home',
+      path: '/'
+    },
+    {
+      title: 'Employés',
+      icon: 'people',
+      path: '/employees'
+    },
+    {
+      title: 'A propos',
+      icon: 'information',
+      path: '/about'
+    }
+  ];
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit() { 
-    this.isLoggedIn =    this.authService.isLoggedIn;
-
+  ngOnInit() {
+    this.authService.isLoggedIn().subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+    });
   }
 
   hideDropdown(event: { clientX: any; clientY: any; }) {
@@ -37,18 +57,11 @@ export class HeaderComponent  implements OnInit {
     }
   }
 
-
-  login() {
-    // code pour la connexion de l'utilisateur
-    this.authService.isLoggedIn = true;
-    this.isLoggedIn = this.authService.isLoggedIn;
-  }
-
   logout() {
-    // code pour la déconnexion de l'utilisateur
-    this.authService.isLoggedIn = false;
-    this.isLoggedIn = this.authService.isLoggedIn;
-
+    this.authService.logout();
+    this.router.navigate(['']);
   }
+
+
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -13,7 +15,9 @@ loginForm!: FormGroup;
 
 constructor(
   private formBuilder: FormBuilder,
-  private authService: AuthService
+  private authService: AuthService, 
+  private router: Router,
+  private toastController: ToastController
 ) {}
 
 ngOnInit() {
@@ -23,6 +27,23 @@ ngOnInit() {
   });
 }
   login() {
-    this.authService.isLoggedIn = true;
+    if (this.loginForm.valid) {
+      this.authService.login();
+      this.router.navigate(['/employees']);
+    } else {
+      //this.presentToast();
+    }  
   }
+  
+/**
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000,
+      position: 'top',
+    });
+    toast.present();
+  }
+ */
+  
 }

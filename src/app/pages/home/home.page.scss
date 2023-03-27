@@ -1,27 +1,135 @@
-#container {
+@import "../../../global.scss";
+ion-card {
+  background: $primary-color;
+  color: #fff;
+}
+ion-card-title {
+  color: $primary-color;
+
+}
+
+ion-card-content {
+  color: #fff;
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-button {
+  color: #fff;
+  border-radius: 12px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
 
-  color: #8c8c8c;
 
-  margin: 0;
+.home__SectionPresentation {
+  height: 450px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Wave background
+  background-image: url('../../../assets/images/background-presentation.svg');
+  background-size: auto 800px;
+  background-repeat: no-repeat;
+  */
+  
+
+  
+
+  img {
+    width: 50vw; /* prend 50% de la largeur de l'écran */
+    height: 35vh; /* prend  50% de la hauteur de l'écran */
+  }
 }
 
-#container a {
-  text-decoration: none;
+.home__SectionFonctionnalites {
+  background-image: linear-gradient(to bottom, $primary-color, $primary-color 40%, #fff);
+  height: fit-content;
+  margin-bottom: 60px;
+
+  h1 {
+    color: #fff;
+  }
+}
+
+.home__SectionTemoignages {
+  margin-bottom: 50px;
+
+  ion-card {
+    height: 200px;
+    background:#fff;
+
+    ion-card-content {
+      color: $primary-color;
+      background: #fff !important;
+    }
+
+    ion-card-header {
+text-align: center;
+    }
+
+    
+  }
+}
+
+
+.home__SectionPartenaires {
+
+height: 200px;
+.brands-grid {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  .brand-item {
+    img {
+      width: 100px;
+    height: 50px;
+    }
+  }
+}
+}
+
+ion-footer {
+  background: $primary-color;
+  color: red !important;
+}
+
+/*Media Queries*/
+
+@media(min-width: 768px) {
+  
+}
+
+@media(max-width: 768px) {
+  .home__SectionPresentation {
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+  
+ 
+  
+  .home__SectionPresentation ion-col:last-child {
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .home__SectionFonctionnalites {
+    height: fit-content;
+
+  }
+
+  .home__SectionPartenaires {
+    height: fit-content;
+
+    .brands-grid {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+  
+
+
 }

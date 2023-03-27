@@ -1,0 +1,16 @@
+ion-footer {
+    ion-col {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media(max-width: 768px) {
+    ion-col {
+        flex-wrap: wrap;
+        :child {
+            width: 100%;
+        }
+    }
+}
