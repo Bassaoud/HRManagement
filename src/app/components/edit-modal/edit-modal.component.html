@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Modifier un employé</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<form #editForm="ngForm" (ngSubmit)="updateEmployee()">
+  <ion-item>
+    <ion-label>Nom</ion-label>
+    <ion-input type="text" name="nom" [(ngModel)]="selectedEmployee.firstName" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Prénom</ion-label>
+    <ion-input type="text" name="prenom" [(ngModel)]="selectedEmployee.lastName" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input type="email" name="email" [(ngModel)]="selectedEmployee.email" required></ion-input>
+  </ion-item>
+  <div class="button-group">
+    <ion-button type="submit" [disabled]="editForm.invalid" (click)="updateEmployee()">Enregistrer</ion-button>
+    <ion-button (click)="closeModal()">Annuler</ion-button>
+  </div>
+</form>

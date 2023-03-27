@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EmployeesPageRoutingModule } from './employees-routing.module';
 
 import { EmployeesPage } from './employees.page';
+import { EditModalComponent } from 'src/app/components/edit-modal/edit-modal.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { EmployeesPage } from './employees.page';
     IonicModule,
     EmployeesPageRoutingModule
   ],
-  declarations: [EmployeesPage]
+  declarations: [EmployeesPage, EditModalComponent]
 })
 export class EmployeesPageModule {}
